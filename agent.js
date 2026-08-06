@@ -172,8 +172,10 @@ document.getElementById("backBtn").onclick = () => {
 // -----------------------
 // Contact Buttons
 // -----------------------
-document.getElementById("callBtn").onclick = () => {
-    window.location.href = "tel:+821023456789";
+document.getElementById("telegramBtn").onclick = () => {
+    window.open("https://t.me/seoulhomes", "_blank");
+};
+    
 };
 
 document.getElementById("whatsappBtn").onclick = () => {
