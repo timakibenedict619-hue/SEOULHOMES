@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Profile • SeoulHomes</title>
+
+<link rel="stylesheet" href="edit-profile.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header class="topbar">
+
+<button id="backBtn" class="icon-btn">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+
+<h2>Edit Profile</h2>
+
+<button id="saveBtn" class="save-btn">
+Save
+</button>
+
+</header>
+
+<!-- Profile -->
+
+<section class="profile-header">
+
+<div class="profile-image">
+
+<img
+id="profileImage"
+src="https://i.pravatar.cc/300?img=32"
+alt="Profile">
+
+<label for="profileUpload" class="camera">
+
+<i class="fa-solid fa-camera"></i>
+
+</label>
+
+<input
+type="file"
+id="profileUpload"
+accept="image/*"
+hidden>
+
+</div>
+
+<h3 id="profileName">
+John Smith
+</h3>
+
+<p>
+Premium Member
+</p>
+
+</section>
+
+<!-- Form -->
+
+<div class="container">
+
+<div class="card">
+
+<h3>Personal Information</h3>
+
+<div class="field">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="fullName"
+placeholder="Enter your full name">
+
+</div>
+
+<div class="field">
+
+<label>Email Address</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email">
+
+</div>
+
+<div class="field">
+
+<label>Phone Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="+82 10 1234 5678">
+
+</div>
+
+<div class="field">
+
+<label>Nationality</label>
+
+<select id="country">
+
+<option>South Korea</option>
+
+<option>United States</option>
+
+<option>United Kingdom</option>
+
+<option>Canada</option>
+
+<option>Nigeria</option>
+
+<option>Japan</option>
+
+<option>China</option>
+
+<option>Australia</option>
+
+<option>Germany</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Preferred Language</label>
+
+<select id="language">
+
+<option>English</option>
+
+<option>Korean</option>
+
+<option>Chinese</option>
+
+<option>Japanese</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- Preferences -->
+
+<div class="card">
+
+<h3>Property Preferences</h3>
+
+<div class="field">
+
+<label>Property Type</label>
+
+<select id="propertyType">
+
+<option>Apartment</option>
+
+<option>Villa</option>
+
+<option>Officetel</option>
+
+<option>Commercial</option>
+
+<option>Penthouse</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>Budget</label>
+
+<select id="budget">
+
+<option>₩100M - ₩300M</option>
+
+<option>₩300M - ₩500M</option>
+
+<option>₩500M - ₩1B</option>
+
+<option>₩1B+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- Settings -->
+
+<div class="card">
+
+<h3>Settings</h3>
+
+<div class="setting">
+
+<span>
+
+<i class="fa-solid fa-bell"></i>
+
+Notifications
+
+</span>
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="notifications"
+checked>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<div class="setting">
+
+<span>
+
+<i class="fa-solid fa-moon"></i>
+
+Dark Mode
+
+</span>
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="darkMode">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<div class="setting">
+
+<span>
+
+<i class="fa-solid fa-globe"></i>
+
+Location Services
+
+</span>
+
+<label class="switch">
+
+<input
+type="checkbox"
+checked>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+</div>
+
+<!-- Security -->
+
+<div class="card">
+
+<h3>Security</h3>
+
+<button class="action-btn" id="changePassword">
+
+<i class="fa-solid fa-lock"></i>
+
+Change Password
+
+</button>
+
+<button class="action-btn" id="deleteAccount">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete Account
+
+</button>
+
+</div>
+
+<!-- Logout -->
+
+<button class="logout-btn" id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottom-nav">
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="saved-properties.html">
+
+<i class="fa-regular fa-heart"></i>
+
+<span>Saved</span>
+
+</a>
+
+<a href="viewings.html">
+
+<i class="fa-regular fa-calendar"></i>
+
+<span>Viewings</span>
+
+</a>
+
+<a href="messages.html">
+
+<i class="fa-regular fa-comments"></i>
+
+<span>Messages</span>
+
+</a>
+
+<a href="edit-profile.html" class="active">
+
+<i class="fa-solid fa-user"></i>
+
+<span>Profile</span>
+
+</a>
+
+</nav>
+
+<script type="module" src="edit-profile.js"></script>
+
+</body>
+
+</html>
