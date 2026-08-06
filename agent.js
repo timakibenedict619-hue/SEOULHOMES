@@ -195,9 +195,26 @@ document.getElementById("emailBtn").onclick = () => {
 // -----------------------
 document.getElementById("bookViewing").onclick = () => {
 
-    alert(
-        "Your viewing request has been sent successfully. The realtor will contact you shortly."
+    const date = prompt(
+        "Enter your preferred viewing date (Example: Aug 12, 2026 - 2:00 PM)"
     );
+
+    if (!date) return;
+
+    property.viewingDate = date;
+
+    localStorage.setItem(
+        "viewing_" + property.title,
+        JSON.stringify(property)
+    );
+
+    alert("Viewing booked successfully!");
+
+};
+
+    
+        
+    
 
 };
 
