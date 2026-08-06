@@ -1,5 +1,4 @@
 // agent.js
-
 const loader = document.getElementById("loader");
 
 const property = JSON.parse(localStorage.getItem("selectedProperty"));
