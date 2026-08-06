@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chat • SeoulHomes</title>
+
+<link rel="stylesheet" href="chat.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header class="chat-header">
+
+<button id="backBtn" class="icon-btn">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+
+<div class="agent-profile">
+
+<img
+id="agentAvatar"
+src="https://i.pravatar.cc/200?img=15"
+alt="Agent">
+
+<div>
+
+<h3 id="agentName">
+Emily Kim
+</h3>
+
+<p id="agentStatus">
+🟢 Online
+</p>
+
+</div>
+
+</div>
+
+<button id="callBtn" class="icon-btn">
+<i class="fa-solid fa-phone"></i>
+</button>
+
+</header>
+
+<!-- Chat Area -->
+
+<main class="chat-container" id="chatContainer">
+
+<!-- Date -->
+
+<div class="chat-date">
+Today
+</div>
+
+<!-- Agent Message -->
+
+<div class="message received">
+
+<div class="bubble">
+
+Hello 👋
+
+Thank you for contacting SeoulHomes.
+
+How can I help you today?
+
+</div>
+
+<span class="time">
+09:30 AM
+</span>
+
+</div>
+
+<!-- User Message -->
+
+<div class="message sent">
+
+<div class="bubble">
+
+I'm interested in the apartment.
+
+</div>
+
+<span class="time">
+09:31 AM
+</span>
+
+</div>
+
+<!-- Agent -->
+
+<div class="message received">
+
+<div class="bubble">
+
+Great!
+
+Would you like to schedule a viewing?
+
+</div>
+
+<span class="time">
+09:32 AM
+</span>
+
+</div>
+
+</main>
+
+<!-- Typing -->
+
+<div id="typingIndicator" class="typing">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+<!-- Input -->
+
+<footer class="chat-input">
+
+<button id="attachBtn">
+<i class="fa-solid fa-paperclip"></i>
+</button>
+
+<input
+type="text"
+id="messageInput"
+placeholder="Type a message...">
+
+<button id="emojiBtn">
+😊
+</button>
+
+<button id="sendBtn">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+</footer>
+
+<script src="chat.js"></script>
+
+</body>
+</html>
