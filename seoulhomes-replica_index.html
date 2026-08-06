@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEOULHOMES - Browse Properties</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fafaf9;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:0;background:none;font-family:inherit}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;letter-spacing:0.18em;font-size:15px}
+.logo span{font-weight:400}
+.hamburger{width:22px;height:14px;display:flex;flex-direction:column;justify-content:space-between}
+.hamburger span{display:block;height:2px;background:#111;border-radius:2px}
+
+/* SEARCH */
+.wrap{max-width:480px;margin:0 auto;padding:0 16px}
+.top-title{padding:18px 0 10px}
+.top-title h1{font-family:'Playfair Display',serif;font-size:26px;display:flex;align-items:center;gap:8px}
+.top-title h1 i{color:#d11a2a;font-style:normal;font-size:22px}
+.top-title p{color:#888;font-size:13px;margin-top:4px}
+.search-row{display:flex;gap:8px;background:#fff;border:1px solid #e8e8e8;border-radius:28px;padding:6px 6px 6px 14px;align-items:center;margin-top:14px}
+.search-row input{flex:1;border:0;outline:0;font-size:14px}
+.search-row .sbtn{background:#c4122f;color:#fff;border-radius:20px;padding:8px 16px;font-weight:600;font-size:13px}
+.filters{margin-top:10px;border:1px solid #e8e8e8;background:#fff;border-radius:24px;padding:10px 14px;width:fit-content;font-size:13px;display:flex;gap:6px;align-items:center}
+
+/* ADS */
+.ads{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ad{border-radius:14px;overflow:hidden;position:relative;height:92px;background:#eee}
+.ad img{width:100%;height:100%;object-fit:cover}
+.ad-badge{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.9);font-size:10px;padding:2px 6px;border-radius:10px;font-weight:600}
+.ad.red{background:#d11a2a;color:#fff;display:flex;align-items:center;padding:10px;font-size:11px;font-weight:700;line-height:1.3}
+
+/* SECTION */
+.sec{margin-top:22px}
+.sec-head{display:flex;justify-content:space-between;align-items:center}
+.sec-head h2{font-family:'Playfair Display',serif;font-size:18px;display:flex;gap:6px;align-items:center}
+.sec-head h2 i{color:#d11a2a;font-style:normal}
+.sec-head a{font-size:13px;color:#888}
+.chips{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;border:1px solid #e8e8e8;background:#fff;border-radius:18px;padding:7px 12px;font-size:12px}
+
+/* CARD */
+.feed{margin-top:18px;display:flex;flex-direction:column;gap:18px;padding-bottom:120px}
+.card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.card-top{position:relative;height:260px;background:#ddd}
+.card-top img{width:100%;height:100%;object-fit:cover}
+.pill{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;padding:5px 10px;border-radius:14px;font-weight:600}
+.actions{position:absolute;top:12px;right:12px;display:flex;gap:8px}
+.act{width:32px;height:32px;background:rgba(255,255,255,.92);border-radius:50%;display:grid;place-items:center;font-size:14px}
+.badge-just{position:absolute;left:12px;bottom:12px;background:linear-gradient(90deg,#ff7a18,#ff3d00);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:14px;display:flex;gap:4px;align-items:center}
+.count{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;padding:4px 8px;border-radius:12px}
+.card-body{padding:12px 14px}
+.rent{color:#0a7e5c;font-weight:700;font-size:14px}
+.rent span{font-weight:500;color:#666;font-size:12px;border:1px solid #e0e0e0;border-radius:6px;padding:2px 6px;margin-left:6px}
+.deposit{font-size:12px;color:#888;margin-top:4px}
+.title{font-weight:600;font-size:14px;line-height:1.35;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.meta div{border:1px solid #eee;background:#fafafa;border-radius:18px;padding:5px 10px;font-size:11px;display:flex;gap:4px;align-items:center}
+.realtor{margin-top:10px;border-top:1px solid #f2f2f2;padding-top:10px;display:flex;justify-content:space-between;align-items:center}
+.realtor-left{display:flex;gap:8px;align-items:center}
+.avatar{width:28px;height:28px;border-radius:50%;background:#ddd;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.realtor-name{font-size:12px;font-weight:600}
+.realtor-sub{font-size:10px;color:#2a7bff}
+.heart.active{color:#d11a2a}
+
+/* DRAWER */
+.drawer{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.35);display:none}
+.drawer.open{display:block}
+.drawer-panel{background:#fff;width:85%;max-width:360px;height:100%;margin-left:auto;padding:22px;display:flex;flex-direction:column}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.drawer-item{padding:14px 0;font-size:16px;font-weight:500;border-bottom:1px solid #f5f5f5}
+.drawer-item.red{color:#c4122f;font-weight:700}
+.drawer-btns{display:flex;gap:10px;margin-top:auto}
+.btn-outline{flex:1;border:1px solid #ddd;border-radius:24px;padding:12px;font-weight:600}
+.btn-black{flex:1;background:#111;color:#fff;border-radius:24px;padding:12px;font-weight:600}
+.lang{margin-top:10px;display:flex;gap:10px}
+.lang div{flex:1;border:1px solid #eee;border-radius:20px;padding:8px 12px;font-size:12px}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="logo">SEOULHOMES</div>
+  <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+</header>
+
+<div class="wrap">
+  <div class="top-title">
+    <h1><i>⌂</i> Browse Properties</h1>
+    <p>Find apartments, officetels, and villas · <span id="totalCount">199</span></p>
+    <div class="search-row">
+      <span style="color:#999">⌕</span>
+      <input id="searchInput" placeholder="Search by building name, area...">
+      <button class="sbtn" id="searchBtn">Search</button>
+    </div>
+    <button class="filters">☰ Filters</button>
+  </div>
+
+  <div class="ads">
+    <div class="ad red">韩国房地产 寻找<br>中国外派人员<br><small style="font-weight:400">可中文沟通 · 一站式服务</small></div>
+    <div class="ad"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600"><div class="ad-badge">AD</div></div>
+    <div class="ad"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600"><div class="ad-badge">AD</div></div>
+    <div class="ad" style="background:#fde9d0;display:grid;place-items:center"><div style="background:#fff;border:2px solid #222;border-radius:50%;padding:10px 14px;font-weight:800;font-size:11px;text-align:center;line-height:1.2">CONSULAR<br>LEGALIZATION</div><div class="ad-badge">AD</div></div>
+  </div>
+
+  <div class="sec" id="residentialSec">
+    <div class="sec-head"><h2><i>⌂</i> Residential <small style="font-family:Inter;font-weight:400;color:#888;font-size:13px">179</small></h2><a href="#">See all</a></div>
+    <div class="chips">
+      <div class="chip">Apartment (26)</div><div class="chip">Officetel (105)</div><div class="chip">Apt. Pre-sale Rights (2)</div><div class="chip">Officetel Pre-sale</div>
+    </div>
+  </div>
+
+  <div class="feed" id="feed"></div>
+
+  <div class="sec">
+    <div class="sec-head"><h2>Office · Commercial <small style="font-family:Inter;font-weight:400;color:#888;font-size:13px">20</small></h2><a href="#">See all</a></div>
+    <div class="chips"><div class="chip">Retail (1)</div><div class="chip">Apartment (Office Use)</div><div class="chip">Office (1)</div><div class="chip">Officetel (Office Use)</div></div>
+  </div>
+  <div class="feed" id="feed2"></div>
+</div>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-panel">
+    <div class="drawer-head"><div class="logo">SEOULHOMES</div><button id="closeDrawer">✕</button></div>
+    <div class="drawer-item">Map</div>
+    <div class="drawer-item">Properties</div>
+    <div class="drawer-item">Agency / Developer</div>
+    <div class="drawer-item">Sign up</div>
+    <div class="drawer-item red">Partner sign up</div>
+    <div class="drawer-btns"><button class="btn-outline">Log in</button><button class="btn-black">Sign up</button></div>
+    <div class="lang"><div>🌐 English</div><div>₩ KRW</div></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="script.js"></script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
