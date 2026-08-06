@@ -212,12 +212,6 @@ document.getElementById("bookViewing").onclick = () => {
 
 };
 
-    
-        
-    
-
-};
-
 // -----------------------
 // Similar Properties
 // -----------------------
