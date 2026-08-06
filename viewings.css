@@ -1,0 +1,379 @@
+/* ===========================================
+   VIEWINGS PAGE
+=========================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f7f7f5;
+color:#222;
+padding-bottom:90px;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button{
+border:none;
+background:none;
+cursor:pointer;
+font-family:inherit;
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.topbar{
+position:sticky;
+top:0;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px;
+border-bottom:1px solid #ececec;
+z-index:100;
+}
+
+.topbar h2{
+font-size:20px;
+font-weight:700;
+}
+
+.icon-btn{
+width:42px;
+height:42px;
+background:#f4f4f4;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+transition:.25s;
+}
+
+.icon-btn:hover{
+background:#e8e8e8;
+}
+
+/* ===========================================
+   HERO
+=========================================== */
+
+.hero{
+padding:25px 20px;
+}
+
+.hero h1{
+font-size:30px;
+font-weight:800;
+margin-bottom:8px;
+}
+
+.hero p{
+color:#666;
+line-height:1.6;
+font-size:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-top:22px;
+}
+
+.stat-card{
+background:#fff;
+padding:18px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 5px 18px rgba(0,0,0,.05);
+}
+
+.stat-card h2{
+font-size:28px;
+color:#c8102e;
+margin-bottom:6px;
+}
+
+.stat-card span{
+font-size:13px;
+color:#777;
+}
+
+/* ===========================================
+   SECTION
+=========================================== */
+
+.section{
+padding:0 18px 20px;
+}
+
+.section-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.section-header h3{
+font-size:20px;
+font-weight:700;
+}
+
+.section-header a{
+font-size:14px;
+color:#c8102e;
+font-weight:600;
+}
+
+/* ===========================================
+   VIEWING CARD
+=========================================== */
+
+.viewings-grid{
+display:grid;
+gap:18px;
+}
+
+.viewing-card{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 6px 20px rgba(0,0,0,.05);
+transition:.25s;
+}
+
+.viewing-card:hover{
+transform:translateY(-3px);
+}
+
+.viewing-image{
+height:220px;
+overflow:hidden;
+}
+
+.viewing-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.viewing-content{
+padding:18px;
+}
+
+.viewing-title{
+font-size:18px;
+font-weight:700;
+line-height:1.5;
+margin-bottom:10px;
+}
+
+.viewing-price{
+font-size:20px;
+font-weight:800;
+color:#0a8a60;
+margin-bottom:12px;
+}
+
+.viewing-info{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:15px;
+}
+
+.viewing-info span{
+background:#f5f5f5;
+padding:8px 12px;
+border-radius:20px;
+font-size:12px;
+color:#666;
+}
+
+.schedule-box{
+background:#f8f8f8;
+padding:14px;
+border-radius:14px;
+margin-bottom:18px;
+}
+
+.schedule-box p{
+font-size:14px;
+margin-bottom:6px;
+color:#555;
+}
+
+.schedule-box strong{
+display:block;
+font-size:15px;
+color:#111;
+}
+
+.card-buttons{
+display:flex;
+gap:10px;
+}
+
+.card-buttons button{
+flex:1;
+height:46px;
+border-radius:12px;
+font-weight:700;
+font-size:14px;
+}
+
+.reschedule-btn{
+background:#f2f2f2;
+color:#333;
+}
+
+.cancel-btn{
+background:#c8102e;
+color:#fff;
+}
+
+/* ===========================================
+   EMPTY STATE
+=========================================== */
+
+.empty-state{
+display:none;
+text-align:center;
+padding:60px 20px;
+}
+
+.empty-state img{
+width:140px;
+margin-bottom:20px;
+}
+
+.empty-state h2{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.empty-state p{
+color:#666;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.browse-btn{
+display:inline-block;
+padding:14px 30px;
+background:#c8102e;
+color:#fff;
+border-radius:30px;
+font-weight:700;
+}
+
+/* ===========================================
+   TIPS
+=========================================== */
+
+.tips{
+padding:0 18px 30px;
+}
+
+.tips h3{
+margin-bottom:16px;
+font-size:20px;
+font-weight:700;
+}
+
+.tip{
+display:flex;
+align-items:center;
+gap:12px;
+background:#fff;
+padding:15px;
+border-radius:14px;
+margin-bottom:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.04);
+}
+
+.tip i{
+font-size:20px;
+color:#0a8a60;
+}
+
+.tip span{
+font-size:14px;
+color:#555;
+}
+
+/* ===========================================
+   BOTTOM NAV
+=========================================== */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:72px;
+background:#fff;
+display:flex;
+justify-content:space-around;
+align-items:center;
+border-top:1px solid #ececec;
+z-index:200;
+}
+
+.bottom-nav a{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:5px;
+font-size:12px;
+color:#777;
+transition:.25s;
+}
+
+.bottom-nav a i{
+font-size:20px;
+}
+
+.bottom-nav a.active{
+color:#c8102e;
+font-weight:700;
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(min-width:768px){
+
+.hero,
+.section,
+.tips{
+max-width:1100px;
+margin:auto;
+}
+
+.viewings-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(min-width:1100px){
+
+.viewings-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
