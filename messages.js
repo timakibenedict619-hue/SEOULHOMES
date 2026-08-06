@@ -65,16 +65,13 @@ chatCards.forEach(card => {
         const agentName =
             card.querySelector("h3").textContent;
 
-        localStorage.setItem(
-            "selectedAgent",
-            agentName
-        );
+        const agentImage =
+            card.querySelector("img").src;
 
-        // Future chat page
-        alert("Opening chat with " + agentName);
+        localStorage.setItem("selectedAgent", agentName);
+        localStorage.setItem("selectedAgentImage", agentImage);
 
-        // Later change to:
-        // window.location.href = "chat.html";
+        window.location.href = "chat.html";
 
     });
 
