@@ -1,0 +1,349 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f6f7fb;
+    color:#222;
+    padding-bottom:90px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.topbar h2{
+    font-size:20px;
+    font-weight:700;
+}
+
+.icon-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#f3f3f3;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
+
+.icon-btn:hover{
+    background:#e8e8e8;
+}
+
+.save-btn{
+    border:none;
+    background:#d61f3a;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.save-btn:hover{
+    background:#b51730;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-header{
+    text-align:center;
+    padding:35px 20px;
+}
+
+.profile-image{
+    position:relative;
+    width:130px;
+    height:130px;
+    margin:auto;
+}
+
+.profile-image img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.camera{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#d61f3a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+.profile-header h3{
+    margin-top:18px;
+    font-size:24px;
+}
+
+.profile-header p{
+    color:#888;
+    margin-top:5px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:92%;
+    max-width:700px;
+    margin:auto;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.card h3{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.field input,
+.field select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    background:white;
+    font-size:15px;
+    transition:.3s;
+}
+
+.field input:focus,
+.field select:focus{
+    outline:none;
+    border-color:#d61f3a;
+    box-shadow:0 0 0 3px rgba(214,31,58,.15);
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.setting{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.setting:last-child{
+    border:none;
+}
+
+.setting span{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* =========================
+   SWITCH
+========================= */
+
+.switch{
+    position:relative;
+    width:50px;
+    height:28px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#ccc;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:22px;
+    height:22px;
+    left:3px;
+    top:3px;
+    background:white;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.switch input:checked + .slider{
+    background:#d61f3a;
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(22px);
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.action-btn{
+    width:100%;
+    margin-top:12px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#f4f4f4;
+    cursor:pointer;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.action-btn:hover{
+    background:#ececec;
+}
+
+.action-btn:last-child{
+    color:#d61f3a;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout-btn{
+    width:92%;
+    max-width:700px;
+    margin:0 auto 25px;
+    display:block;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#111;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.logout-btn:hover{
+    background:#000;
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:12px 0;
+    box-shadow:0 -3px 12px rgba(0,0,0,.08);
+}
+
+.bottom-nav a{
+    text-decoration:none;
+    color:#777;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    font-size:12px;
+    transition:.3s;
+}
+
+.bottom-nav i{
+    font-size:20px;
+}
+
+.bottom-nav a.active{
+    color:#d61f3a;
+    font-weight:600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.topbar{
+    padding:15px;
+}
+
+.topbar h2{
+    font-size:18px;
+}
+
+.profile-image,
+.profile-image img{
+    width:110px;
+    height:110px;
+}
+
+.card{
+    padding:18px;
+}
+
+      }
