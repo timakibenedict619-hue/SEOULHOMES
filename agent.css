@@ -1,0 +1,695 @@
+/* ==========================================
+   SEOUL HOMES - AGENT PAGE
+   PART 1
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f6f7fb;
+    color:#222;
+    line-height:1.5;
+}
+
+/* Loader */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.spinner{
+    width:55px;
+    height:55px;
+    border:5px solid #eee;
+    border-top:5px solid #d71920;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* Header */
+
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    background:linear-gradient(to bottom,
+    rgba(0,0,0,.45),
+    transparent);
+}
+
+.top-actions{
+    display:flex;
+    gap:10px;
+}
+
+.icon-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.95);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:18px;
+    transition:.25s;
+}
+
+.icon-btn:hover{
+    transform:scale(1.05);
+}
+
+.icon-btn i{
+    color:#222;
+}
+
+/* Gallery */
+
+.gallery{
+    position:relative;
+    width:100%;
+    height:340px;
+    overflow:hidden;
+    background:#ddd;
+}
+
+.gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.image-count{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+    background:rgba(0,0,0,.7);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:25px;
+    font-size:13px;
+}
+
+.gallery-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.95);
+    cursor:pointer;
+    font-size:18px;
+}
+
+.gallery-btn.left{
+    left:15px;
+}
+
+.gallery-btn.right{
+    right:15px;
+}
+
+/* Main */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:25px 18px 120px;
+}
+
+/* Cards */
+
+.card,
+.price-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+/* Property */
+
+.property-type{
+    display:inline-block;
+    background:#d71920;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+#propertyPrice{
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+#propertyDeposit{
+    color:#777;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+#propertyTitle{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:20px;
+    line-height:1.4;
+}
+
+.property-meta{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.property-meta div{
+    background:#fafafa;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+    border:1px solid #eee;
+}
+
+.property-meta i{
+    display:block;
+    color:#d71920;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.property-meta span{
+    font-size:14px;
+    font-weight:600;
+}
+
+/* Headings */
+
+.card h3{
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.section-title{
+    margin:25px 0 15px;
+    font-size:22px;
+    font-weight:700;
+}
+/* ==========================================
+   SEOUL HOMES - AGENT PAGE
+   PART 2
+========================================== */
+
+/* Amenities */
+
+.amenities{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.amenities div{
+    background:#fafafa;
+    border:1px solid #ececec;
+    border-radius:14px;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:15px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.amenities div:hover{
+    background:#fff5f5;
+    border-color:#d71920;
+    transform:translateY(-2px);
+}
+
+.amenities i{
+    color:#d71920;
+    font-size:20px;
+    width:28px;
+    text-align:center;
+}
+
+/* Description */
+
+#propertyDescription{
+    color:#555;
+    font-size:15px;
+    line-height:1.9;
+}
+
+/* Realtor Card */
+
+.agent{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.agent img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #f2f2f2;
+}
+
+.agent-info{
+    flex:1;
+}
+
+.agent-info h4{
+    font-size:20px;
+    margin-bottom:6px;
+}
+
+.agent-info p{
+    color:#777;
+    margin-bottom:12px;
+}
+
+.verified{
+    display:inline-block;
+    background:#e8f5ee;
+    color:#0b8d52;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* Map */
+
+.map{
+    overflow:hidden;
+    border-radius:18px;
+    border:1px solid #eee;
+}
+
+.map iframe{
+    width:100%;
+    height:280px;
+    border:none;
+}
+
+/* Contact Buttons */
+
+.contact-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.contact-buttons button{
+    border:none;
+    border-radius:14px;
+    padding:15px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.contact-buttons button i{
+    margin-right:8px;
+}
+
+#callBtn{
+    background:#0b8d52;
+    color:#fff;
+}
+
+#callBtn:hover{
+    background:#087845;
+}
+
+#whatsappBtn{
+    background:#25D366;
+    color:#fff;
+}
+
+#whatsappBtn:hover{
+    background:#1eb857;
+}
+
+#emailBtn{
+    background:#2563eb;
+    color:#fff;
+}
+
+#emailBtn:hover{
+    background:#1d4ed8;
+}
+
+/* Similar Properties */
+
+.similar-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
+    margin-top:18px;
+}
+
+.similar-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 6px 16px rgba(0,0,0,.06);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.similar-card:hover{
+    transform:translateY(-6px);
+}
+
+.similar-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.similar-content{
+    padding:16px;
+}
+
+.similar-price{
+    color:#d71920;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.similar-title{
+    font-size:15px;
+    font-weight:600;
+    line-height:1.5;
+    color:#222;
+    margin-bottom:12px;
+}
+
+.similar-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.similar-meta span{
+    background:#f7f7f7;
+    border-radius:20px;
+    padding:6px 12px;
+    font-size:12px;
+    color:#666;
+}
+
+/* Card Hover */
+
+.card{
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+/* ===========================
+   PART 3 - Agent Page Extras
+=========================== */
+
+/* Description */
+
+.description-section{
+    margin-top:28px;
+}
+
+.description-section h2{
+    font-size:20px;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.description-section p{
+    color:#666;
+    line-height:1.8;
+    font-size:15px;
+}
+
+
+/* Agent Card */
+
+.agent-card{
+    margin-top:30px;
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.agent-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.agent-avatar{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.agent-name{
+    font-size:18px;
+    font-weight:700;
+}
+
+.agent-role{
+    color:#888;
+    margin-top:4px;
+    font-size:14px;
+}
+
+.agent-rating{
+    margin-top:8px;
+    color:#f4b400;
+    font-size:15px;
+}
+
+
+/* Gallery */
+
+.gallery{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+    overflow-x:auto;
+}
+
+.gallery::-webkit-scrollbar{
+    display:none;
+}
+
+.gallery img{
+    width:90px;
+    height:70px;
+    border-radius:12px;
+    object-fit:cover;
+    cursor:pointer;
+    transition:.3s;
+    border:2px solid transparent;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+    border-color:#d51d32;
+}
+
+
+/* Buttons */
+
+.action-buttons{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.action-buttons button{
+    border:none;
+    padding:15px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#contactBtn{
+    background:#d51d32;
+    color:white;
+}
+
+#bookBtn{
+    background:#111;
+    color:white;
+}
+
+#saveBtn{
+    background:#f2f2f2;
+}
+
+#shareBtn{
+    background:#ececec;
+}
+
+.action-buttons button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+
+/* Back Button */
+
+.back-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    cursor:pointer;
+    z-index:100;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    transform:scale(1.1);
+}
+
+
+/* Floating Buttons */
+
+.floating-actions{
+    position:fixed;
+    bottom:25px;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:0 20px;
+}
+
+.floating-actions button{
+    flex:1;
+    max-width:220px;
+    padding:16px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.primary-btn{
+    background:#d51d32;
+    color:white;
+}
+
+.secondary-btn{
+    background:white;
+    color:#111;
+    border:1px solid #ddd;
+}
+
+
+/* Animation */
+
+.fade-in{
+    animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .agent-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .action-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .gallery img{
+        width:80px;
+        height:65px;
+    }
+
+    .floating-actions{
+        flex-direction:column;
+    }
+
+}
