@@ -176,7 +176,7 @@ document.getElementById("telegramBtn").onclick = () => {
     window.open("https://t.me/seoulhomes", "_blank");
 };
     
-};
+
 
 document.getElementById("whatsappBtn").onclick = () => {
     window.open(
