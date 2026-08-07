@@ -207,7 +207,7 @@ async function sendMessage() {
 
         messageInput.value = "";
 
-        autoReply();
+        
 
     }
 
@@ -225,7 +225,7 @@ async function sendMessage() {
 // Automatic Agent Reply
 // =========================================
 
-async function autoReply() {
+
 
 // =========================================
 // PART 3
