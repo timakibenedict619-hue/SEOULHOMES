@@ -16,7 +16,9 @@ import {
     orderBy,
     onSnapshot,
     addDoc,
-    serverTimestamp
+    serverTimestamp,
+    doc,
+    setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // =========================================
@@ -66,18 +68,38 @@ agentName.textContent = selectedAgent;
 // Wait For Login
 // =========================================
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
 
         window.location.href = "login.html";
-
         return;
 
     }
 
     currentUser = user;
 
+    // Create the chat document if it doesn't exist
+    await setDoc(
+
+        doc(
+            db,
+            "users",
+            currentUser.uid,
+            "chats",
+            selectedAgent
+        ),
+
+        {
+            agent: selectedAgent,
+            updatedAt: serverTimestamp()
+        },
+
+        { merge: true }
+
+    );
+
+    // Messages collection
     messagesRef = collection(
         db,
         "users",
