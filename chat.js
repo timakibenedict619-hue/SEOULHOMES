@@ -45,14 +45,15 @@ const agentName =
 // ==========================
 // Current User
 // ==========================
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
-const user = auth.currentUser;
+    // Start the chat here
+});
 
-if (!user) {
-
-    window.location.href = "login.html";
-
-}
 
 // ==========================
 // Selected Agent
