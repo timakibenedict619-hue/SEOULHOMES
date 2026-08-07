@@ -227,63 +227,6 @@ async function sendMessage() {
 
 async function autoReply() {
 
-    typingIndicator.style.display = "flex";
-
-    scrollBottom();
-
-    const replies = [
-
-        "Hello 👋 Thanks for contacting SeoulHomes.",
-
-        "The property is still available.",
-
-        "Would you like to schedule a viewing?",
-
-        "I can send you more photos if you'd like.",
-
-        "What date would you like to visit?",
-
-        "Our realtor will contact you shortly.",
-
-        "Thank you for your interest."
-
-    ];
-
-    const reply =
-
-        replies[
-            Math.floor(
-                Math.random() * replies.length
-            )
-        ];
-
-    setTimeout(async () => {
-
-        typingIndicator.style.display = "none";
-
-        try {
-
-            await addDoc(messagesRef, {
-
-                sender: "agent",
-
-                text: reply,
-
-                timestamp: serverTimestamp()
-
-            });
-
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-        }
-
-    }, 1800);
-
-}
 // =========================================
 // PART 3
 // Navigation & UI
