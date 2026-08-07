@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Messages • SeoulHomes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="admin-messages.css">
+
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header class="header">
+
+<div class="logo">
+
+<i class="fa-solid fa-building"></i>
+
+SEOULHOMES
+
+<span>ADMIN</span>
+
+</div>
+
+<button id="refreshBtn">
+
+<i class="fa-solid fa-rotate-right"></i>
+
+</button>
+
+</header>
+
+<!-- Search -->
+
+<section class="search-area">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search customer...">
+
+</div>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h2 id="totalChats">
+
+0
+
+</h2>
+
+<p>Total Chats</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="unreadChats">
+
+0
+
+</h2>
+
+<p>Unread</p>
+
+</div>
+
+</section>
+
+<!-- Chat List -->
+
+<main
+class="chat-list"
+id="chatList">
+
+<!-- Firestore loads chats here -->
+
+</main>
+
+<!-- Empty -->
+
+<div
+class="empty-state"
+id="emptyState">
+
+<i class="fa-regular fa-comments"></i>
+
+<h2>
+
+No conversations
+
+</h2>
+
+<p>
+
+Customer messages will appear here.
+
+</p>
+
+</div>
+
+<!-- Loading -->
+
+<div
+class="loading"
+id="loading">
+
+<div class="spinner"></div>
+
+<p>
+
+Loading conversations...
+
+</p>
+
+</div>
+
+<script type="module" src="admin-messages.js"></script>
+
+</body>
+</html>
