@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create your account - SEOULHOMES</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#f6f5f2;color:#111;-webkit-font-smoothing:antialiased}
+    .header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+    .logo{font-weight:700;letter-spacing:.18em;font-size:15px}
+    .hamburger{width:22px;height:14px;display:flex;flex-direction:column;justify-content:space-between}
+    .hamburger span{height:2px;background:#111;border-radius:2px;display:block}
+    .wrap{max-width:480px;margin:0 auto;padding:28px 16px 40px}
+    .title{text-align:center;margin-bottom:20px}
+    .title h1{font-size:26px;font-weight:700;letter-spacing:-.02em}
+    .title p{color:#888;font-size:14px;margin-top:6px}
+    .card{background:#fff;border-radius:20px;padding:22px 18px;border:1px solid #eee;box-shadow:0 4px 24px rgba(0,0,0,.04)}
+    .social{display:flex;flex-direction:column;gap:10px}
+    .sbtn{border:1px solid #e8e8e8;background:#fafaf8;border-radius:24px;padding:12px 16px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:14px;cursor:pointer}
+    .sbtn img,.icon{width:18px;height:18px;border-radius:3px;display:grid;place-items:center;font-weight:700;font-size:12px}
+    .icon.g{background:#fff;border:1px solid #eee}
+    .icon.a{background:#111;color:#fff;border-radius:50%}
+    .icon.n{background:#03c75a;color:#fff}
+    .icon.k{background:#fae100;color:#000}
+    .divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:#aaa;font-size:12px;font-weight:600}
+    .divider::before,.divider::after{content:'';flex:1;height:1px;background:#eee}
+    .field{margin-top:16px}
+    .field label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+    .input-wrap{position:relative}
+    .input-wrap input{width:100%;border:1px solid #e9e9e9;background:#f6f5f2;border-radius:22px;padding:12px 40px 12px 14px;font-size:14px;outline:none}
+    .input-wrap input::placeholder{color:#aaa}
+    .input-wrap input:focus{border-color:#111;background:#fff}
+    .eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#aaa;font-size:14px;cursor:pointer}
+    .hint{font-size:11px;color:#999;margin-top:4px}
+    .checks{margin-top:18px;border:1px solid #eee;border-radius:16px;padding:12px}
+    .crow{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:13px}
+    .crow input{margin-top:3px}
+    .crow .view{margin-left:auto;color:#999;font-size:12px;white-space:nowrap}
+    .blue-box{margin-top:12px;background:#f5f7ff;border-radius:14px;padding:12px;display:flex;gap:8px;font-size:12px;color:#666;line-height:1.4}
+    .create{margin-top:18px;width:100%;background:#8fb2ff;color:#fff;border-radius:24px;padding:14px;font-weight:600;font-size:15px;border:0;opacity:.9;cursor:pointer}
+    .create:disabled{opacity:.5}
+    .small{margin-top:14px;text-align:center;font-size:11px;color:#999;line-height:1.4}
+    .signin{margin-top:14px;text-align:center;font-size:13px;border-top:1px solid #f0f0f0;padding-top:14px}
+    .signin a{font-weight:700;text-decoration:underline}
+    .ad{margin-top:20px;background:#dfeeff;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .ad .grow{font-weight:800;font-size:20px;display:flex;align-items:center;gap:6px}
+    .ad h2{font-size:24px;line-height:1.2;font-weight:800}
+    .ad button{background:#111;color:#fff;border-radius:22px;padding:10px 18px;width:fit-content;font-weight:600;border:0;cursor:pointer}
+    .lang{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #eee;border-radius:20px;padding:6px 12px;font-size:12px;display:flex;gap:6px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+
+    .custom-alert-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .custom-alert-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .custom-alert {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px 22px 20px;
+      width: 90%;
+      max-width: 340px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      text-align: center;
+      transform: scale(0.92);
+      transition: transform 0.2s ease;
+    }
+
+    .custom-alert-overlay.show .custom-alert {
+      transform: scale(1);
+    }
+
+    .custom-alert-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff0f0;
+      color: #e05a5a;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
+
+    .custom-alert-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .custom-alert-msg {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .custom-alert-btn {
+      width: 100%;
+      background: #8fb2ff;
+      color: #fff;
+      border: none;
+      border-radius: 22px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .custom-alert-btn:active {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">SEOULHOMES</div>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="title">
+      <h1>Create your account</h1>
+      <p>Browse and save Seoul property listings</p>
+    </div>
+
+    <div class="card">
+      <div class="social">
+        <button class="sbtn" id="googleRegisterBtn" type="button">
+          <span class="icon g">G</span>
+          Continue with Google
+        </button>
+
+        <button class="sbtn" type="button">
+          <span class="icon a"></span>
+          Continue with Apple
+        </button>
+
+        <button class="sbtn" type="button">
+          <span class="icon n">N</span>
+          Continue with Naver
+        </button>
+
+        <button class="sbtn" type="button">
+          <span class="icon k">💬</span>
+          Continue with KakaoTalk
+        </button>
+      </div>
+
+      <div class="divider">OR</div>
+
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <div class="input-wrap">
+          <input id="fullname" type="text" placeholder="Jane Smith" autocomplete="name">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <div class="input-wrap">
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <input id="password" type="password" placeholder="Min. 6 characters" autocomplete="new-password">
+          <span class="eye" data-toggle="password">👁</span>
+        </div>
+        <div class="hint">Minimum 6 characters</div>
+      </div>
+
+      <div class="field">
+        <label for="confirm">Confirm password</label>
+        <div class="input-wrap">
+          <input id="confirm" type="password" placeholder="Repeat your password" autocomplete="new-password">
+          <span class="eye" data-toggle="confirm">👁</span>
+        </div>
+      </div>
+
+      <div class="checks">
+        <div class="crow">
+          <input type="checkbox" id="agreeAll">
+          <label for="agreeAll"><b>Agree to all</b></label>
+        </div>
+
+        <div class="crow">
+          <input type="checkbox" class="req">
+          <span>[Required] Terms of Service</span>
+          <span class="view">View</span>
+        </div>
+
+        <div class="crow">
+          <input type="checkbox" class="req">
+          <span>[Required] Privacy Policy</span>
+          <span class="view">View</span>
+        </div>
+
+        <div class="crow">
+          <input type="checkbox">
+          <span>[Optional] Marketing Consent</span>
+          <span class="view">View</span>
+        </div>
+
+        <div class="crow">
+          <input type="checkbox" class="req">
+          <span>[Required] I am 19 years of age or older</span>
+        </div>
+      </div>
+
+      <div class="blue-box">
+        <span>ⓘ</span>
+        <span>This account applies across all Expert Sapiens platform services listed below.</span>
+      </div>
+
+      <button class="create" id="createBtn" type="button">Create account</button>
+
+      <div class="small">
+        This site is protected by reCAPTCHA and<br>
+        the Google Privacy Policy and Terms of Service apply.
+      </div>
+
+      <div class="signin">
+        Already have an account?
+        <a href="login.html">Sign in</a>
+      </div>
+    </div>
+
+    <div class="ad">
+      <div class="grow">
+        <span style="width:28px;height:28px;background:linear-gradient(90deg,#ff6a00,#ffb800,#2a9df4);border-radius:50%;display:inline-block"></span>
+        grow
+      </div>
+
+      <h2>Want Fewer Ads<br>Like This One?</h2>
+      <button type="button">Get Grow Today</button>
+    </div>
+  </div>
+
+  <div class="lang">🌐 EN</div>
+
+  <div class="custom-alert-overlay" id="customAlert">
+    <div class="custom-alert">
+      <div class="custom-alert-icon">!</div>
+      <div class="custom-alert-title">Please check</div>
+      <div class="custom-alert-msg" id="customAlertMsg"></div>
+      <button class="custom-alert-btn" id="customAlertOk" type="button">OK</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const overlay = document.getElementById("customAlert");
+      const msgEl = document.getElementById("customAlertMsg");
+      const okBtn = document.getElementById("customAlertOk");
+
+      function showCustomAlert(message) {
+        msgEl.textContent = message || "Please fill in all required fields.";
+        overlay.classList.add("show");
+      }
+
+      function hideCustomAlert() {
+        overlay.classList.remove("show");
+      }
+
+      okBtn.addEventListener("click", hideCustomAlert);
+
+      overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) hideCustomAlert();
+      });
+
+      window.alert = function (message) {
+        showCustomAlert(String(message));
+      };
+    })();
+  </script>
+
+  <script src="app.js"></script>
+  <script type="module" src="register.js"></script>
+</body>
+</html>
